@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<project name="MoaUtils" default="dist" basedir=".">
+    <description>
+    MOA Crypto Core API Build File [2018.11]
+    </description>
+	
+    <!-- set global properties for this build -->
+	<property name = "src"      location = "src" />
+    <property name = "build"    location = "build" />
+    <property name = "dist"     location = "dist" />
+    <property name = "version"  value = "1.0" />
+ 
+	<path id ="classpath">
+		<fileset dir="../LabsLib">  
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	
+    <target name="init">
+        <!-- Create the time stamp -->
+        <tstamp />
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${build}" />
+    </target>
+ 
+    <target name="compile" depends="init" description="compile the source">
+    	<javac encoding="utf-8" srcdir="${src}" includeantruntime="false" destdir="${build}" classpathref="classpath" debug="true" />
+    </target>	
+    	
+    <target name="dist" depends="compile" description="generate the distribution">
+        <buildnumber />
+        <!-- Create the distribution directory -->
+        <mkdir dir="${dist}/lib" />
+ 
+        <!-- Put everything in ${build} into the MOACryptoCoreAPI-${version}.${build.number}.jar -->
+        <jar destfile="${dist}/lib/MoaUtils-v${version}.${build.number}.jar" basedir="${build}" />
+    </target>
+ 
+	<target name="javadoc" depends="init" description="create java doc">
+
+		<mkdir dir="${doc}" />
+		<javadoc destdir="${doc}" classpath="E:\99_JavaWork\bcprov-ext-jdk15on-160.jar" 
+			     locale="ko_KR"   encoding="utf-8" docencoding="utf-8" charset="utf-8" >
+			<fileset dir="${src}">
+				<exclude name="**/*.properties"/>
+			</fileset>
+		</javadoc>
+	</target>
+
+	<target name="clean" description="clean up">
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}" />
+        <delete dir="${dist}" />
+		<delete dir="${doc}" />
+    </target>
+</project>
