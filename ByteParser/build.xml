@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <project name="ByteParser" default="dist" basedir=".">
     <description>
-    MOA Crypto Core API Build File [2018.11]
+    MOA ByteParser Build File [2019.10]
     </description>
 	
     <!-- set global properties for this build -->
