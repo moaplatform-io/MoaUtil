@@ -24,7 +24,7 @@
     </target>
  
     <target name="compile" depends="init" description="compile the source">
-    	<javac encoding="MS949" srcdir="${src}" includeantruntime="false" destdir="${build}" classpathref="classpath" debug="true" />
+    	<javac encoding="utf-8" srcdir="${src}" includeantruntime="false" destdir="${build}" classpathref="classpath" debug="true" />
     </target>	
     	
     <target name="dist" depends="compile" description="generate the distribution">
