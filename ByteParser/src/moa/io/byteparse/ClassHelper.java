@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Modifier;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -29,6 +30,7 @@ public class ClassHelper {
 				 cmdClassList.put(inneerCmdCode, classList.get(i));
 			 }
 		}
+		System.out.println(cmdClassList);
 		Class callClass=cmdClassList.get(command);
 		if(callClass!=null) {
 			o=callClass.newInstance();
@@ -78,6 +80,11 @@ public class ClassHelper {
 			}
 	
 			String directoryString = directoryURL.getFile();
+			try {
+				directoryString=URLDecoder.decode(directoryString, "utf-8");
+			}catch (Exception e) {
+			}
+
 			if (directoryString == null) {
 				System.err.println("Could not find directory for URL resource : " + packageNameSlash);
 				return null;

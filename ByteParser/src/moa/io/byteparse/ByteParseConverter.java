@@ -17,11 +17,6 @@ public class ByteParseConverter {
 		}
 	}
 	public static int coverByteToDto(Object instence,MoaClassFieldInfo field,byte[] msg,int index) throws IllegalArgumentException, IllegalAccessException, IOException {
-//		ByteParse parse=field.getParse();
-//		System.out.print(field.getField().getName()+"\t");
-//		System.out.print(parse.order()+"\t");
-//		System.out.print(parse.byteSize()+"\t");
-//		System.out.println(field.getField().getType());
 		int size=field.getParse().byteSize();
 		try {
 			if(field.getField().getType().equals(String.class)) {

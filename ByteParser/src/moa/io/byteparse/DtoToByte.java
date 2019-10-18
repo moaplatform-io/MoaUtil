@@ -8,14 +8,6 @@ import java.util.List;
 public class DtoToByte {
 
 	public static byte[] dtoToByte(Object ins) throws IllegalArgumentException, IllegalAccessException, IOException {
-		byte[] list=null;
-		ByteArrayOutputStream bos=new ByteArrayOutputStream();
-		List<MoaClassFieldInfo> filedList=DtoHelper.getFieldList(ins);
-		ByteParseConverter.covertDtoToByte(ins, filedList,bos);
-		return bos.toByteArray();
-	}
-	public static byte[] dtoToByteAll(Object ins) throws IllegalArgumentException, IllegalAccessException, IOException {
-		byte[] list=null;
 		ByteArrayOutputStream bos=new ByteArrayOutputStream();
 		List<MoaClassFieldInfo> filedList=DtoHelper.getFieldList(ins);
 		ByteParseConverter.covertDtoToByte(ins, filedList,bos);
